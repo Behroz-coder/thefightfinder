@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block title %}News{% endblock title %}
+{% block newspage %}active{% endblock newspage %}active
+{% block main %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center news-page"
+    style="background-image: url('{{news.img.url}}');">
+
+    <div class="container" data-aos="zoom-out">
+        <div class="row">           
+            <div class="">
+                <h2>{{news.news_type}}</h2>
+                <h1>{{news.title}}</h1>
+                <h3>{{news.news_discription}}</h3>                
+            </div>           
+        </div>
+    </div>
+</section><!-- End Hero -->
+<main id="main">
+    <section id="trending" class="trending">
+        <div class="container" data-aos="fade-up">            
+            <div class="row">
+                
+                <div class="col-lg-8">
+
+                    {{news.content|safe}}
+                </div>
+               
+                <div class="col-lg-4">
+
+                </div>
+            </div>
+        </div>
+    </section><!-- End Trending Section -->
+
+</main><!-- End #main -->
+{% endblock main %}

@@ -1,0 +1,384 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Reviews{% endblock title %}
+{% block reviewpage %}active{% endblock reviewpage %}
+{% block main %}
+<main id="main">
+  <!-- ======= Tabs Section ======= -->
+
+  {% comment %} <section id="reviews" class="reviews ">
+
+    <div class="container mt-5" data-aos="fade-up">
+
+      <div class="user-review">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="user-img">
+              <img class="img-fluid"
+                src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="rating">
+              <h4>Ratings:</h4>
+
+              <div class="row">
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-5"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>(150)</div>
+                </div>
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-4"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>(63)</div>
+                </div>
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-3"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>(15)</div>
+                </div>
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-2"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>(12)</div>
+                </div>
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-1"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>(2)</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="user-about mt-5">
+          <h3>About</h3>
+          <p>Cristiana has become the face of WWE. Discover how Cena's career started, from The Prototype in Ohio
+            Valley Wrestling to winning his first WWE championship at Wrestlemania. His opponents in the ring may not
+            be able to see him, but you sure will thanks to the beautiful and colorful photographs that work with the
+            easy to read text.</p>
+        </div>
+        <div class="user-specification mt-5">
+          <h3>Specification</h3>
+          <p>Specializes in Leg twisting with moving on one leg
+            Have strong vision for fights and won with this vision
+            Works on improving himself from childhood and reach this point. Cristiana has become the face of WWE.
+            Discover how Cena's career started, from The Prototype in Ohio
+            Valley Wrestling to winning his first WWE championship at Wrestlemania. His opponents in the ring may not
+            be able to see him, but you sure will thanks to the beautiful and colorful photographs that work with the
+            easy to read text.
+          </p>
+        </div>
+        <div class=" all-reviews justify-content-between d-flex mt-5">
+          <h4>All Reviews</h4>
+          <select id="event-ddl" class="event-ddl" name="event-ddl">
+            <option value="Newest">Newest</option>
+            <option value="Upcoming">Upcoming</option>
+            <option value="Past">Past</option>
+          </select>
+        </div>
+        <div class="review-box">
+          <div class="review-heder">
+            <div class="review-img">
+              <img class="img-fluid"
+                src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
+
+            </div>
+            <div class="review-name">
+              <h4>Ahsan</h4>
+              <div class="review-star">
+                <div><i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bx-star'></i>
+                  <i class='bx bx-star'></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="review-date">
+            <p>Reviewed on July 2, 2021</p>
+          </div>
+          <div class="review-content">
+            <p>
+              I think what makes their story truly special and what makes it resonate with so many people around the
+              globe is that this is a story about a few people, through trial and immense tribulation, overcoming the
+              odds while chasing a dream. Not only that, the emphasis they always put on how important their fans are
+              and the country they come from should be a model any up and coming fighter, or person in general, could
+              learn a lot from.
+            </p>
+
+          </div>
+          <div class="review-button">
+            <a href="#">Helpful</a>
+            <a href="#">Report Abuse</a>
+          </div>
+
+
+        </div>
+        <div class="review-box">
+          <div class="review-heder">
+            <div class="review-img">
+              <img class="img-fluid"
+                src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
+
+            </div>
+            <div class="review-name">
+              <h4>Ahsan</h4>
+              <div class="review-star">
+                <div><i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bx-star'></i>
+                  <i class='bx bx-star'></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="review-date">
+            <p>Reviewed on July 2, 2021</p>
+          </div>
+          <div class="review-content">
+            <p>
+              I think what makes their story truly special and what makes it resonate with so many people around the
+              globe is that this is a story about a few people, through trial and immense tribulation, overcoming the
+              odds while chasing a dream. Not only that, the emphasis they always put on how important their fans are
+              and the country they come from should be a model any up and coming fighter, or person in general, could
+              learn a lot from.
+            </p>
+
+          </div>
+          <div class="review-button">
+            <a href="#">Helpful</a>
+            <a href="#">Report Abuse</a>
+          </div>
+
+
+        </div>
+        <div class="review-box">
+          <div class="review-heder">
+            <div class="review-img">
+              <img class="img-fluid"
+                src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
+
+            </div>
+            <div class="review-name">
+              <h4>Ahsan</h4>
+              <div class="review-star">
+                <div><i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bx-star'></i>
+                  <i class='bx bx-star'></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="review-date">
+            <p>Reviewed on July 2, 2021</p>
+          </div>
+          <div class="review-content">
+            <p>
+              I think what makes their story truly special and what makes it resonate with so many people around the
+              globe is that this is a story about a few people, through trial and immense tribulation, overcoming the
+              odds while chasing a dream. Not only that, the emphasis they always put on how important their fans are
+              and the country they come from should be a model any up and coming fighter, or person in general, could
+              learn a lot from.
+            </p>
+
+          </div>
+          <div class="review-button">
+            <a href="#">Helpful</a>
+            <a href="#">Report Abuse</a>
+          </div>
+
+
+        </div>
+        <div class="review-box">
+          <div class="review-heder">
+            <div class="review-img">
+              <img class="img-fluid"
+                src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
+
+            </div>
+            <div class="review-name">
+              <h4>Ahsan</h4>
+              <div class="review-star">
+                <div><i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bx-star'></i>
+                  <i class='bx bx-star'></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="review-date">
+            <p>Reviewed on July 2, 2021</p>
+          </div>
+          <div class="review-content">
+            <p>
+              I think what makes their story truly special and what makes it resonate with so many people around the
+              globe is that this is a story about a few people, through trial and immense tribulation, overcoming the
+              odds while chasing a dream. Not only that, the emphasis they always put on how important their fans are
+              and the country they come from should be a model any up and coming fighter, or person in general, could
+              learn a lot from.
+            </p>
+
+          </div>
+          <div class="review-button">
+            <a href="#">Helpful</a>
+            <a href="#">Report Abuse</a>
+          </div>
+
+
+        </div>
+        <div class="review-box">
+          <div class="review-heder">
+            <div class="review-img">
+              <img class="img-fluid"
+                src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
+
+            </div>
+            <div class="review-name">
+              <h4>Ahsan</h4>
+              <div class="review-star">
+                <div><i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bxs-star'></i>
+                  <i class='bx bx-star'></i>
+                  <i class='bx bx-star'></i></div>
+              </div>
+            </div>
+          </div>
+          <div class="review-date">
+            <p>Reviewed on July 2, 2021</p>
+          </div>
+          <div class="review-content">
+            <p>
+              I think what makes their story truly special and what makes it resonate with so many people around the
+              globe is that this is a story about a few people, through trial and immense tribulation, overcoming the
+              odds while chasing a dream. Not only that, the emphasis they always put on how important their fans are
+              and the country they come from should be a model any up and coming fighter, or person in general, could
+              learn a lot from.
+            </p>
+
+          </div>
+          <div class="review-button">
+            <a href="#">Helpful</a>
+            <a href="#">Report Abuse</a>
+          </div>
+
+
+        </div>
+
+      </div>
+
+    </div>
+  </section> {% endcomment %}
+  <section id="player-section" class="player-section ">
+
+    <div class="container-fluid " data-aos="fade-up">
+      {% for p in players  %}
+      <div class="player-row">
+
+        <div class="row">
+          <div class="col-lg-3 col-md-3 col-12 ">
+
+            <div class="p-left">
+
+            </div>
+
+          </div>
+          <div class="col-lg-3 col-md-3 col-6">
+            <div class="p-img">
+              <img class="img-fluid"
+                src="{{p.review_page_img.url}}"
+                alt="">
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-6 p-info-box">
+            <div class="p-info">
+              <a href="{{p.player_link}}">
+                <h3>{{p.name}}</h3> 
+              </a>
+              
+              <h5>Last Fight:<span>Deiveson Figueiredo vs Brandon Moreno</span></h5>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-3 col-12">
+            <div class="p-right">
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+      {% endfor %}
+
+    </div>
+  </section>
+
+
+
+
+
+</main><!-- End #main -->
+{% endblock main %}

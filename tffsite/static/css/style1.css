@@ -1,0 +1,12 @@
+body > div > footer > div {
+  visibility: hidden;
+}
+a.cke_dialog_ui_button_ok {
+  color: white !important;
+}
+
+@media (max-width: 768px) {
+  .modal.modal-wide .modal-dialog {
+    width: 95%;
+  }
+}

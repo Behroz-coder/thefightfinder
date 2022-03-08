@@ -1,0 +1,241 @@
+{% extends 'dash_base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock title %}
+
+
+{% block body %}
+
+<!-- page title area start -->
+<div class="page-title-area">
+    <div class="row align-items-center">
+        <div class="col-sm-6">
+            <div class="breadcrumbs-area clearfix">
+                <h4 class="page-title pull-left">Dashboard</h4>
+                <ul class="breadcrumbs pull-left">
+                    <li><a href="{% url 'dashboard' %}">Home</a></li>
+                    <li><span>Dashboard</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- page title area end -->
+<div class="main-content-inner">
+
+    <!-- visitor graph area start -->
+    {% comment %} <div class="card mt-5">
+        <div class="card-body">
+            <div class="d-flex justify-content-between mb-5">
+                <h4 class="header-title mb-0">Visitor Graph</h4>
+                <select class="custome-select border-0 pr-3">
+                    <option selected="">Last 7 Days</option>
+                    <option value="0">Last 7 Days</option>
+                </select>
+            </div>
+            <div id="visitor_graph"></div>
+        </div>
+    </div> {% endcomment %}
+    <!-- visitor graph area end -->
+
+    <div class="main-content-inner">
+        
+        {% if messages %}
+        {% for message in messages %}
+
+
+       
+        <div class="alert alert-{{message.tags}} alert-dismissible fade show" role="alert">
+            <strong>{{message.tags}}!</strong> {{message}}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span class="fa fa-times"></span>
+            </button>
+        </div>
+        {% endfor %}
+        {% endif %}
+        <div class="row">
+            
+
+            <!-- event table start -->
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Events Table</h4>
+                        <div class="data-tables">
+                            <div class="table-responsive">
+
+                                <table id="events" class="text-center" style="width:100%">
+                                    <thead class="bg-light text-capitalize">
+                                        <tr>
+                                            <th>Enent Nname</th>
+                                            <th>Event Organizer</th>
+                                            <th>Event Date</th>
+                                            <th>Organizer Contact Number</th>
+                                            <th>Event Address</th>
+                                            <th>Organizer Contact Email</th>
+                                            <th>Event Cost</th>
+                                            <th>Event Website</th>
+                                            <th>Event Style</th>
+                                            <th>Competition Type</th>
+                                            <th>Event Facebook Link</th>
+                                            <th>Event Twitter Link</th>
+                                            <th>Organizer Facebook Link</th>
+                                            <th>Organizer Twitter Link</th>
+                                            <th>Event rules requlations</th>
+                                            <th>Special reques form event organizer</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for e in events  %}
+                                        <tr>
+                                            <td>{{e.event_name}}</td>
+                                            <td>{{e.event_organizer}}</td>
+                                            <td>{{e.event_date}}</td>
+                                            <td>{{e.organizer_contact_number}}</td>
+                                            <td>{{e.event_address}}</td>
+                                            <td>{{e.organizer_contact_email}}</td>
+                                            <td>{{e.event_cost}}</td>
+                                            <td>{{e.event_website}}</td>
+                                            <td>{{e.event_style}}</td>
+                                            <td>{{e.competition_type}}</td>
+                                            <td>{{e.event_social_links_fb}}</td>
+                                            <td>{{e.event_social_links_tw}}</td>
+                                            <td>{{e.organizer_social_links_fb}}</td>
+                                            <td>{{e.organizer_social_links_tw}}</td>
+                                            <td>{{e.event_rules_requlations}}</td>
+                                            <td>{{e.special_request_form_event_organizer}}</td>
+                                            <td>
+                                                <ul class="table-action d-flex justify-content-center">
+                                                    <li class="mr-3"><a href="{% url 'edit_event' e.id %}"
+                                                            class="text-secondary"><i class="fa fa-edit"></i></a></li>
+                                                    <li><a href="{% url 'delete_event' e.id %}" class="text-danger"><i
+                                                                class="ti-trash"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        {% endfor %}
+
+
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- event table end -->
+
+            <!-- seminar table start -->
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">Seminar Table</h4>
+                        <div class="data-tables">
+                            <div class="">
+
+                                <table id="seminar" class="text-center" style="width:100%">
+                                    <thead class="bg-light text-capitalize">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start Date</th>
+                                            <th>salary</th>
+                                            <th>salary1</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Airi Satou</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>33</td>
+                                            <td>2008/11/28</td>
+                                            <td>$162,700</td>
+                                            <td>$162,700</td>
+                                            <td>
+                                                <ul class="table-action d-flex justify-content-center">
+                                                    <li class="mr-3"><a href="#" class="text-secondary"><i
+                                                                class="fa fa-edit"></i></a></li>
+                                                    <li><a href="#" class="text-danger"><i class="ti-trash"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- seminar table end -->
+
+            <!-- school table start -->
+            <div class="col-12 mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="header-title">School/Gym Table</h4>
+                        <div class="data-tables">
+                            <div class="">
+
+                                <table id="school" class="text-center" style="width:100%">
+                                    <thead class="bg-light text-capitalize">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start Date</th>
+                                            <th>salary</th>
+                                            <th>salary1</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Airi Satou</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>33</td>
+                                            <td>2008/11/28</td>
+                                            <td>$162,700</td>
+                                            <td>$162,700</td>
+                                            <td>
+                                                <ul class="table-action d-flex justify-content-center">
+                                                    <li class="mr-3"><a href="#" class="text-secondary"><i
+                                                                class="fa fa-edit"></i></a></li>
+                                                    <li><a href="#" class="text-danger"><i class="ti-trash"></i></a>
+                                                    </li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+
+
+
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- school table end -->
+
+
+        </div>
+    </div>
+
+
+</div>
+{% endblock body %}

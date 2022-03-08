@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% block uprofile %}style="
+width: 100%;
+margin-top: 0px;
+background: #c7c2c2;
+"{% endblock uprofile %}
+{% load static %}
+{% block title %}Reviews{% endblock title %}
+{% block reviewpage %}active{% endblock reviewpage %}
+{% block main %}
+<main id="main">
+  <!-- ======= Tabs Section ======= -->
+
+  <section id="reviews" class="reviews ">
+
+    <div class="container mt-5" data-aos="fade-up">
+
+      <div class="user-review">
+        <div class="row">
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="user-img">
+              <img class="img-fluid" src="{{player.review_page_img.url}}">
+
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-12 col-12">
+            <div class="rating">
+              <h4>Ratings:</h4>
+              
+              <div class="row">
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-5" style="width:{{5star}}%"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>({{player.num_5star}})</div>
+                </div>
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-4 " style="width:{{4star}}%"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>({{player.num_4star}})</div>
+                </div>
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-3" style="width:{{3star}}%"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>({{player.num_3star}})</div>
+                </div>
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-2" style="width:{{2star}}%"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>({{player.num_2star}})</div>
+                </div>
+                <div class="side">
+                  <div>
+                    <i class='bx bxs-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i>
+                    <i class='bx bx-star'></i></div>
+                </div>
+                <div class="middle">
+                  <div class="bar-container">
+                    <div class="bar-1" style="width:{{1star}}%"></div>
+                  </div>
+                </div>
+                <div class="side right">
+                  <div>({{player.num_1star}})</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="user-about mt-5">
+          <h3>About</h3>
+          <p>{{player.about}}</p>
+        </div>
+        <div class="user-specification mt-5">
+          <h3>Specification</h3>
+          <p>{{player.specification}}
+          </p>
+        </div>
+        <div class=" all-reviews justify-content-between d-flex mt-5">
+          <h4>All Reviews</h4>
+          <select id="event-ddl" class="event-ddl" name="event-ddl">
+            <option value="Newest">Newest</option>
+            <option value="Upcoming">Upcoming</option>
+            <option value="Past">Past</option>
+          </select>
+        </div>
+        {% for review in player.reviews.all  %}
+        <div class="review-box">
+          <div class="review-heder">
+            <div class="review-img">
+              <img class="img-fluid"
+                src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
+
+            </div>
+            <div class="review-name">
+              <h4>{{review.user.first_name}} {{review.user.last_name}}</h4>
+              <div class="review-star">
+                <div>
+                  {% for x in maxr  %}
+                  {% if  forloop.counter <= review.rating  %}
+                  <i class='bx bx{{x}}-star'></i>
+                  {% else %}
+                  <i class='bx bx-star'></i>
+                  {% endif %}
+                  
+                  
+                  {% endfor %}
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="review-date">
+            <p>Reviewed on {{review.date|date}}</p>
+          </div>
+          <div class="review-content">
+            <p>
+              {{review.content}}
+            </p>
+
+          </div>
+          <div class="review-button">
+            <a href="#">Helpful</a>
+            <a href="#">Report Abuse</a>
+          </div>
+
+
+        </div>
+        {% endfor %}
+
+
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+</main><!-- End #main -->
+{% endblock main %}

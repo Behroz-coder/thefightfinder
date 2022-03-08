@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Login{% endblock title %}
+
+{% block main %}
+
+{% if  user.is_authenticated %}
+<script>
+    window.location.href = "/";
+</script>
+
+{% endif %} 
+
+<main id="main">
+    <!-- ======= Tabs Section ======= -->
+
+    <section id="login-section" class="login-section  ">
+        <div class="container " data-aos="fade-up">
+            <div class="row">
+              
+                {% if messages %}
+                {% for message in messages %}
+                
+
+                <div class="alert alert-{{message.tags}} ">
+                    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                    <strong>{{message.tags}}!</strong> {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                <div class="col-lg-6 col-md-6 col-8 mx-auto ">
+                    <div class="login-div">
+                        <h4>Already registered?</h4>
+                        <p>If you have an account with us, please log in.</p>
+                    </div>
+
+                    <form method="post" >
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="username">User Name</label>
+                            <span>*</span>
+                            <input type="username" class="form-control" id="username" name="username"
+                                placeholder="Enter username">
+                            {% comment %} <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small> {% endcomment %}
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Password</label>
+                            <span>*</span>
+                            <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="off"
+                                name="password" placeholder="Password">
+                        </div>
+                        <div class="form-group form-check">
+                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                            <label class="form-check-label" for="exampleCheck1">Remmber Me.</label>
+                        </div>
+                        <div class="login-btn">
+                            <a href="{% url 'signup' %}">Create account</a>
+                            <button type="submit" class="btn ">Login</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</main><!-- End #main -->
+{% endblock main %}
+{% comment %} $('.alert').delay(5000).fadeOut('slow'); {% endcomment %}

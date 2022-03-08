@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% load humanize %}
+{% load static %}
+{% block title %}News{% endblock title %}
+{% block newspage %}active{% endblock newspage %}active
+{% block main %}
+
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center news-hero"
+    style="background-image: url('{% static 'img/hero-bg1.jpg' %}');">
+
+    <div class="container" data-aos="zoom-out">
+
+    </div>
+
+</section><!-- End Hero -->
+<main id="main">
+    <section id="trending" class="trending">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>what's trending now</h2>
+            </div>
+            <div class="event-filter justify-content-end d-flex">
+                <h2>Sort By:</h2>
+                <select id="event-ddl" class="event-ddl" name="event-ddl">
+                    <option value="Newest">Newest</option>
+                    <option value="Upcoming">Upcoming</option>
+                    <option value="Past">Past</option>
+                </select>
+            </div>
+            {% comment %} <ul class="nav d-flex">
+                <li class="nav-item  ">
+                    <a class="tablink active show" data-bs-toggle="tab" data-bs-target="#tab-1">
+
+                        <h4 class="d-lg-block">Upcoming</h4>
+                    </a>
+                </li>
+                <li class="nav-item ">
+                    <a class=" tablink" data-bs-toggle="tab" data-bs-target="#tab-2">
+
+                        <h4 class="d-lg-block ">Past</h4>
+                    </a>
+                </li>
+
+            </ul> {% endcomment %}
+            <div class="row">
+
+                {% for news in newslist  %}
+               
+                <div class="col-lg-4 col-md-4 col-12 mt-4" data-aos="fade-up" data-aos-delay="100">
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href=" {{news.news_link}}">
+                                <div class="info-box">
+                                    <img
+                                        src="{{news.img.url}}">
+                                    <div class="info-box-detail">
+
+                                        <div class="info-box-header">
+                                            
+                                            <h4>{{news.news_type}}</h4>
+                                            <h4>{{news.date_time|naturaltime}}</h4>
+                                        </div>
+                                        
+                                        <h3>{{news.title}}</h3>
+                                        <p>{{news.news_discription}}</p>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+
+                </div>
+                {% endfor %}
+                
+
+               
+               
+
+
+
+
+
+
+            </div>
+
+        </div>
+    </section><!-- End Trending Section -->
+
+</main><!-- End #main -->
+{% endblock main %}

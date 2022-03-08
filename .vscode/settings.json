@@ -1,0 +1,4 @@
+{
+  "appService.defaultWebAppToDeploy": "/subscriptions/a82fff64-17c5-4502-815d-06b38568d80e/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/thefightfinder",
+  "appService.deploySubpath": "."
+}

@@ -1,0 +1,262 @@
+{% extends 'dash_base.html' %}
+{% load static %}
+{% block title %}Dashboard{% endblock title %}
+
+
+{% block body %}
+
+<!-- page title area start -->
+<div class="page-title-area">
+    <div class="row align-items-center">
+        <div class="col-sm-6">
+            <div class="breadcrumbs-area clearfix">
+                <h4 class="page-title pull-left">Dashboard</h4>
+                <ul class="breadcrumbs pull-left">
+                    <li><a href="{% url 'dashboard' %}">Home</a></li>
+                    <li><span>Add Event</span></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- page title area end -->
+<div class="main-content-inner">
+
+
+
+    <div class="main-content-inner">
+        <div class="row">
+
+            <div class="col-12">
+                <div class="card mt-5">
+                    
+                    <div class="card-body">
+                        <h4 class="header-title">Add New Event Form</h4>
+                        <form class="needs-validation" method="post" novalidate="">
+                            {% csrf_token %}
+                            <div class="form-row  ">
+                                <div class="col-md-4 mb-3 mr-5">
+                                    <label for="event_name">Event name <span class="required-icon">*</span> </label>
+                                    <input type="text" class="form-control " id="event_name" name="event_name"
+                                        placeholder="Event name" value="" required="">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide event name.
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3 mr-5">
+                                    <label for="event_organizer">Event Organizer <span
+                                            class="required-icon">*</span></label>
+                                    <input type="text" class="form-control" id="event_organizer" name="event_organizer"
+                                        placeholder="Organizer Name" required="">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide Organizer Name.
+                                    </div>
+                                </div>
+
+
+
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3 mr-5">
+                                    <label for="event_date">Event Date <span class="required-icon">*</span></label>
+                                    <input class="form-control" type="date" placeholder="2022-03-05" id="event_date"
+                                        name="event_date" required="">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide event Date.
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="organizer_contact_number" class="col-form-label">Organizer Contact
+                                        Number <span class="required-icon v-h">*</span></label>
+                                    <input class="form-control" type="tel" placeholder="+880-1233456789"
+                                        id="organizer_contact_number" name="organizer_contact_number">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide Contact Number.
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3 mr-5">
+                                    <label for="event_address">Event Address <span
+                                            class="required-icon">*</span></label>
+                                    <input class="form-control" type="text" placeholder="Event Address"
+                                        id="event_address" name="event_address" required="">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide event address.
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="organizer_contact_email" class="col-form-label">Organizer Contact Email
+                                        <span class="required-icon ">*</span></label>
+                                    <input class="form-control" type="email" placeholder="name@example.com"
+                                        id="organizer_contact_email" name="organizer_contact_email" required="">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <div class="invalid-feedback">
+                                        Please provide Contact Email.
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3 mr-5">
+                                    <label for="event_cost">Event Cost <span class="required-icon v-h">*</span></label>
+                                    <input class="form-control" type="number" placeholder="Event Cost" id="event_cost"
+                                        name="event_cost">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="event_website" class="col-form-label">Event Website<span
+                                            class="required-icon v-h">*</span></label>
+                                    <input class="form-control" type="text" placeholder="Event Website"
+                                        id="event_website" name="event_website">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="event_style" class="col-form-label">Event Style <span
+                                            class="required-icon v-h">*</span></label>
+                                    <select class="form-control" id="event_style" name="event_style">
+                                        <option value="">Select Style</option>
+                                        {% for e in event_style  %}
+                                        <option value="{{e.style}}">{{e.style}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% comment %} <input class="form-control " type="text" placeholder="Event Style"
+                                        id="event_style" name="event_style"> {% endcomment %}
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="competition_type" class="col-form-label">Competition Type <span
+                                            class="required-icon v-h">*</span></label>
+
+                                    <select class="form-control" id="competition_type" name="competition_type">
+                                        <option value="">Select type</option>
+                                        {% for c in competition_type  %}
+                                        <option value="{{c.type}}">{{c.type}}</option>
+                                        {% endfor %}
+                                    </select>
+                                    {% comment %} <input class="form-control " type="text" placeholder="Competition Type"
+                                        id="competition_type" name="competition_type"> {% endcomment %}
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="event_social_links" class="col-form-label">Event Social Links <span
+                                            class="required-icon v-h">*</span></label>
+                                    <input class="form-control " type="text" placeholder="Facebook"
+                                        id="event_social_links_fb" name="event_social_links_fb">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <input class="form-control mt-1" type="text" placeholder="Twitter"
+                                        id="event_social_links_tw" name="event_social_links_tw">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+                                </div>
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="organizer_social_links" class="col-form-label">Organizer Social Links
+                                        <span class="required-icon v-h">*</span></label>
+                                    <input class="form-control " type="text" placeholder="Facebook"
+                                        id="organizer_social_links_fb" name="organizer_social_links_fb">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+                                    <input class="form-control mt-1" type="text" placeholder="Twitter"
+                                        id="organizer_social_links_tw" name="organizer_social_links_tw">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="event_rules_requlations" class="col-form-label">Event Rules and
+                                        Regulations<span class="required-icon v-h">*</span></label>
+                                    <input class="form-control " type="text" placeholder="Event Rules and Regulations"
+                                        id="event_rules_requlations" name="event_rules_requlations">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+
+                                </div>
+                                <div class="col-md-4 mb-3 mr-5">
+
+                                    <label for="special_request_form_event_organizer" class="col-form-label">Special
+                                        Request form event Organizer<span class="required-icon v-h">*</span></label>
+                                    <input class="form-control " type="text"
+                                        placeholder="Special Request form event Organizer"
+                                        id="special_request_form_event_organizer"
+                                        name="special_request_form_event_organizer">
+                                    <div class="valid-feedback">
+                                        Looks good!
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+
+                            <button class="btn btn-primary" type="submit">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+</div>
+{% endblock body %}

@@ -1,0 +1,229 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block title %}Sign Up{% endblock title %}
+{% block main %}
+
+
+
+{% if  user.is_authenticated %}
+<script>
+    window.location.href = "/";
+</script>
+
+{% endif %} 
+
+
+
+<main id="main">
+    <!-- ======= Tabs Section ======= -->
+
+    <section id="login-section" class="login-section  ">
+        <div class="container " data-aos="fade-up">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-8 mx-auto ">
+                    <div class="login-div">
+                        <h4>Create Account</h4>
+
+                    </div>
+
+                    <form id="signup-form" method="post" action="{% url 'signup' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="usertype">Select Type</label>
+                            <span>*</span>
+                            {% comment %} <input type="text" class="form-control" id="username" name="username"
+                                placeholder="Enter User Name" required> {% endcomment %}
+                            <select class="form-select" name="usertype" id="usertype" required>
+                                <option value="" selected>Choose Type</option>
+                                {% for type  in usertype  %}
+                                <option value="{{type.id}}">{{type.type}}</option>
+                                {% endfor %}
+                            </select>
+                            <span id='span-usertype'></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="username">User Name</label>
+                            <span>*</span>
+                            <input type="text" class="form-control" id="username" name="username"
+                                placeholder="Enter User Name" required>
+                            <span id='span-username'></span>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="firstname">First Name</label>
+                            <span>*</span>
+                            <input type="text" class="form-control" id="firstname" name="firstname"
+                                placeholder="Enter First Name" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="lastname">Last Name</label>
+                            <span>*</span>
+                            <input type="text" class="form-control" id="lastname" name="lastname"
+                                placeholder="Enter Last Name" required>
+
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email address</label>
+                            <span>*</span>
+                            <input type="email" class="form-control" id="email" name="email"
+                                aria-describedby="emailHelp" placeholder="Enter email" required>
+                            <span id="span-email"></span>
+                            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+                                else.</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <span>*</span>
+                            <div class="signup">
+                                <input type="password" class="form-control fp" name="password" id="password"
+                                    placeholder="Password" autocomplete="off" required>
+                                <i class='bx bx-show tp'></i>
+                            </div>
+                            <span class="sp" id='sp-password'></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirmpassword">Confirm Password</label>
+                            <span>*</span>
+                            <div class="signup">
+                                <input type="password" class="form-control fp" name="cpassword" id="confirmpassword"
+                                    placeholder="Confirm Password" autocomplete="off" required>
+                                <i class='bx bx-show tp'></i>
+                            </div>
+                            <span class="sp" id='sp-cpassword'></span>
+                        </div>
+
+                        <div class="login-btn">
+                            <a href="{% url 'login_view' %}">Login</a>
+                            <button type="submit" id="ca" class="btn ">Create Account</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+</main><!-- End #main -->
+{% endblock main %}
+{% block endscript %}
+<script>
+    //var submit = false;
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelector("#signup-form").addEventListener('submit', function (event) {
+            event.preventDefault();
+            
+            if ( 
+                document.querySelector("#span-email").innerHTML == '' &&
+                document.querySelector("#span-username").innerHTML == '' &&
+                document.querySelector("#sp-password").innerHTML == '' &&
+                document.querySelector("#sp-cpassword").innerHTML == ''
+
+            ) {
+                
+                event.currentTarget.submit();
+            }
+        })
+        //if (
+        //    document.querySelector("#span-email").innerHTML == '' &&
+        //    document.querySelector("#span-username").innerHTML == '' &&
+        //    document.querySelector("#sp-password").innerHTML == '' &&
+        //    document.querySelector("#sp-cpassword").innerHTML == ''
+
+        //) {
+        //    submit = true;
+        //} else {
+        //    submit = false;
+        //}
+
+        
+        document.querySelector('#email').addEventListener('change', function () {
+            if (this.value == "") {
+                document.querySelector("#span-email").innerHTML = '';
+                //submit = true;
+            }
+            if (this.value != "") {
+
+                $.ajax({
+                    type: 'GET',
+                    url: `/email/${this.value}/`,
+                    success: function (response) {
+
+                        document.querySelector("#span-email").innerHTML = response.success;
+
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    }
+                })
+            }
+        })
+        document.querySelector('#username').addEventListener('change', function () {
+            if (this.value == "") {
+                document.querySelector("#span-username").innerHTML = '';
+            }
+            if (this.value != "") {
+
+                $.ajax({
+                    type: 'GET',
+                    url: `/username/${this.value}/`,
+                    success: function (response) {
+
+                        document.querySelector("#span-username").innerHTML = response
+                            .success;
+                    },
+                    error: function (error) {
+                        console.log(error)
+                    }
+                })
+            }
+        })
+        document.querySelectorAll('.tp').forEach(ele => {
+            ele.addEventListener("click", () => {
+
+                document.querySelectorAll('.tp').forEach(ele => {
+
+                    ele.classList.toggle('bx-hide');
+                    ele.classList.toggle('bx-show');
+
+
+                });
+                document.querySelectorAll('.fp').forEach(ele => {
+
+                    const type = ele.getAttribute('type') === 'password' ? 'text' :
+                        'password';
+                    ele.setAttribute('type', type);
+
+
+                });
+            })
+        });
+        document.querySelectorAll(".fp").forEach(fp => {
+            fp.addEventListener("input", () => {
+
+                var password = document.getElementById("password");
+                var password2 = document.getElementById("confirmpassword");
+
+                if (password2.value == password.value) {
+                    document.querySelectorAll(".sp").forEach(ele => {
+                        ele.innerHTML = '';
+                    })
+
+                } else {
+                    document.querySelectorAll(".sp").forEach(ele => {
+                        ele.innerHTML = '* Password not match.';
+                    })
+
+                }
+
+            })
+        });
+
+    });
+</script>
+{% endblock endscript %}
