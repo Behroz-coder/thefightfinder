@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-v4i=4iui-qm2g(ezml%)e)gb*cfo=4_ocfqz68k6)wq=qlx8^2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['https://thefightfinder.azurewebsites.net',
                  'thefightfinder.azurewebsites.net', '127.0.0.1']
