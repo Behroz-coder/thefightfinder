@@ -6,7 +6,33 @@
 <style>
     #mapp {
         width: 100%;
-        height: 70vh;
+        height: 45vh;
+    }
+
+    .btn-s:hover {
+        background-color: #222ccd;
+        box-shadow: 0px 15px 20px rgb(19 31 219 / 40%);
+        color: #fff;
+        transform: translateY(-7px);
+    }
+    .btn-s {
+        background-color: #2f39b3;
+        color: white;
+        border: none;
+        padding: 5px 10px;
+        border-radius: 10px;
+        transition: all 0.3s ease 0s;
+    }
+    ._event_btn{
+        margin-top: 10px;
+    }
+    ._event_box{
+        margin-left:10px;
+    }
+    .row_event{
+        box-shadow: 0 0 30px rgb(214 215 216);
+    padding: 10px;
+    border-radius: 10px;
     }
 </style>
 {% endblock startscript %}
@@ -57,10 +83,34 @@
 
             <div class="tab-content mt-2">
                 <div class="tab-pane active show" id="tab-1">
-                    <div class="row">
+                    <div class="row row_event">
+                        <div class="col-lg-6 d-flex">
+                            <div class="col-lg-4">
+                                <div class="_event_img">
+                                    <img class="img-fluid" src="{% static 'img/blog/blog-recent-5.jpg' %}" alt="">
+                                </div>
 
+                            </div>
+                            <div class="col-lg-8 d-flex align-items-center pl-2">
+                                <div class="_event_box">
 
-                        <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="100">
+                                    <div class="_event_title">
+                                        Event Title
+                                    </div>
+                                    <div class="_event_body">
+                                        <div class="_event_content">
+                                            <p><strong>Discription:</strong> This is discriptions</p>
+                                            <p><strong>Location:</strong> This is Location</p>
+                                        </div>
+                                        <div class="_event_btn">
+                                            <button class="btn-s">Read More</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {% comment %} <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="100">
 
                             <div class="row">
                                 <div class="col-md-12">
@@ -78,60 +128,7 @@
                             </div>
 
                         </div>
-                        <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="100">
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="info-box">
-                                        <img
-                                            src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
-                                        <a href="">
-                                            <h3>Interview</h3>
-                                        </a>
-                                        <p>Interview of Most Trending at</p>
-                                        <p>this weekend....</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="100">
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="info-box ">
-                                        <img
-                                            src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
-                                        <a href="">
-                                            <h3>Results</h3>
-                                        </a>
-                                        <p>The Fight Finder 234: Usman Vs. Adam</p>
-                                        <p>Fight Results</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                        <div class="col-lg-6 mt-4" data-aos="fade-up" data-aos-delay="100">
-
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="info-box ">
-                                        <img
-                                            src="https://dmxg5wxfqgb4u.cloudfront.net/styles/card/s3/2021-08/080721-Derrick-Lewis-1055767018.jpg?h=e5aec6c8&amp;itok=eZwroE7F">
-                                        <a href="">
-                                            <h3>Results</h3>
-                                        </a>
-                                        <p>The Fight Finder 234: Usman Vs. Adam</p>
-                                        <p>Fight Results</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
+                        {% endcomment %}
 
 
 
@@ -222,7 +219,11 @@
         };
         // The map, centered at Uluru
         const map = new google.maps.Map(document.getElementById("mapp"), option);
-        var event_m = {{events|safe}};
+        var event_m = {
+            {
+                events | safe
+            }
+        };
         var event_markers = [{
                 cords: {
                     lat: -33.8688,
@@ -239,7 +240,7 @@
         ];
 
         for (var i = 0; i < event_m.length; i++) {
-           //console.log(event_m[i].cords);
+            //console.log(event_m[i].cords);
             addMarker(event_m[i]);
         }
 
@@ -250,7 +251,7 @@
                 position: props.cords,
                 map: map,
                 title: props.title,
-                
+
                 //icon: props.icon,
 
                 //icon:''
@@ -268,7 +269,7 @@
                     <a href="/" class="info_link">View on Google.com</a>
                 </div>`
             });
-        }   
+        }
 
 
 

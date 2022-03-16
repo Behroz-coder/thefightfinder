@@ -26,6 +26,7 @@ def index(request):
             user_type = False
         context['user_type'] = user_type
     return render(request, "index.html", context)
+    # return render(request, "index.html")
 
 
 def login_view(request):

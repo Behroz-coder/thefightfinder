@@ -7,8 +7,8 @@ from events.models import *
 class Seminar(models.Model):
     seminar_name = models.CharField(max_length=100)
     seminar_organizer = models.CharField(max_length=100)
-    
-    seminar_date = models.DateField(auto_now=False)
+
+    # seminar_date = models.DateField(auto_now=False)
     # organizer_contact_number = models.CharField(max_length=100, blank=True)
     # seminar_address = models.CharField(max_length=200)
     # organizer_contact_email = models.EmailField()

@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import logging.config
 import logging
-import django_heroku
+# import django_heroku
 import os
 from pathlib import Path
 
@@ -30,8 +30,8 @@ SECRET_KEY = 'django-insecure-v4i=4iui-qm2g(ezml%)e)gb*cfo=4_ocfqz68k6)wq=qlx8^2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['thefightfinder.herokuapp.com',
-                 '127.0.0.1', 'thefightfinder.azurewebsites.net']
+ALLOWED_HOSTS = ['https://thefightfinder.azurewebsites.net',
+                 'thefightfinder.azurewebsites.net', '127.0.0.1']
 
 
 # Application definition
@@ -55,8 +55,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -169,10 +169,12 @@ CKEDITOR_UPLOAD_PATH = 'uploads/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://*.thefightfinder.herokuapp.com', 'https://*.127.0.0.1', 'https://thefightfinder.azurewebsites.net']
+    'https://thefightfinder.azurewebsites.net']
+# CSRF_TRUSTED_ORIGINS = [
+#     'https://*.thefightfinder.herokuapp.com', 'https://*.127.0.0.1', 'https://thefightfinder.azurewebsites.net']
 # CSRF_TRUSTED_ORIGINS = ['https://*.mydomain.com','https://*.127.0.0.1']
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
 
 
 CKEDITOR_CONFIGS = {

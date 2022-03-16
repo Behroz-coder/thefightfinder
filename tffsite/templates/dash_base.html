@@ -17,7 +17,8 @@
     <link rel="stylesheet" href="{% static 'assets/css/font-awesome.min.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/themify-icons.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/metisMenu.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}">
+    {% comment %}
+    <link rel="stylesheet" href="{% static 'assets/css/owl.carousel.min.css' %}"> {% endcomment %}
     <link rel="stylesheet" href="{% static 'assets/css/slicknav.min.css' %}">
     <!-- amchart css -->
     <link rel="stylesheet" href="https://www.amcharts.com/lib/3/plugins/export/export.css" type="text/css"
@@ -40,7 +41,7 @@
 
 
     {% if not user.is_authenticated %}
-   
+
     <script>
         window.location.href = "/";
     </script>
@@ -49,7 +50,7 @@
     <script>
         window.location.href = "/";
     </script>
-    
+
     {% endif %}
 
     {% endif %}
@@ -62,7 +63,7 @@
         <![endif]-->
     <!-- preloader area start -->
     <div id="preloader">
-        
+
         <div class="loader"></div>
     </div>
     <!-- preloader area end -->
@@ -130,8 +131,8 @@
                                 <div class="user-profile1 ">
                                     <img class="avatar user-thumb" src="{% static 'assets/images/author/avatar.png' %}"
                                         alt="avatar">
-                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">{{user|truncatechars:8}} <i
-                                            class="fa fa-angle-down"></i>
+                                    <h4 class="user-name dropdown-toggle" data-toggle="dropdown">
+                                        {{user|truncatechars:8}} <i class="fa fa-angle-down"></i>
                                     </h4>
                                     <div class="dropdown-menu">
                                         {% comment %} <a class="dropdown-item" href="#">Message</a> {% endcomment %}
@@ -172,7 +173,7 @@
     <!-- bootstrap 4 js -->
     <script src="{% static 'assets/js/popper.min.js' %}"></script>
     <script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script>
+    {% comment %} <script src="{% static 'assets/js/owl.carousel.min.js' %}"></script> {% endcomment %}
     <script src="{% static 'assets/js/metisMenu.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery.slimscroll.min.js' %}"></script>
     <script src="{% static 'assets/js/jquery.slicknav.min.js' %}"></script>

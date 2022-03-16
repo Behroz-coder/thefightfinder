@@ -84,16 +84,16 @@ h6 {
   height: 60px;
   margin-top: 25px;
   margin-left: auto;
-  width: 85%;
+  width: 75%;
   margin-right: auto;
-  box-shadow: 0 0 30px rgb(214 215 216);
+  box-shadow: 0 0 5px rgb(214 215 216);
 }
 
 #header.header-scrolled {
   padding: 5px 0;
   width: 100%;
   margin-top: 0px;
-  box-shadow: 0 0 30px rgb(214 215 216);
+ 
 }
 
 .logo {
