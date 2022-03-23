@@ -2,20 +2,46 @@
 {% load static %}
 {% block title %}About Us{% endblock title %}
 {% block aboutpage %}active{% endblock aboutpage %}active
+{% block head_style %}
+<style>
+    .about .section-title h5 {
+        text-align: left;
+    }
+
+    .about .section-title {
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .about_title h1{
+        font-size: 40px !important;
+    }
+    .about_title {
+        max-width: 100%;
+        background: gray;
+        position: absolute;
+        bottom: 0;
+    }
+    .about_hero{
+        height: 60vh !important;
+    }
+</style>
+{% endblock head_style %}
 {% block main %}
 
 <!-- ======= Hero Section ======= -->
-{% comment %} <section id="hero" class="d-flex align-items-center" style="background-image: url('{% static 'img/hero-bg1.jpg' %}');">
+<section id="hero" class="about_hero d-flex align-items-center" style="background-image: url('{% static 'img/hero-bg1.jpg' %}');">
 
-    <div class="container" data-aos="zoom-out">
-        < <div class="row">
+    <div class="container about_title" data-aos="zoom-out">
+        <div class="row">
             <div class="col-xl-3">
 
             </div>
-            <div class="col-xl-6 text-center">
-                
-                <h1></h1>
-                
+            <div class="col-xl-6 ">
+
+                <h1>About The Fight Finder </h1>
+
             </div>
             <div class="col-xl-3">
 
@@ -23,41 +49,37 @@
         </div>
     </div>
 
-</section><!-- End Hero --> {% endcomment %}
+</section><!-- End Hero -->
 <main id="main">
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
 
             <div class="section-title">
-                <h2>About The Fight Finder</h2>
-                <p>As a company, we extend our "We Are All Fighters" brand maxim well beyond the Octagon. we bring that
-                    fighting spirit to our CSR initiatives as we seek to build a testing legacy - both in home city of
-                    Las vagas, and in every community we touch around the world. It takes courage to step into the
-                    Octagon, and it takes courage to stand for your convictions. Our CSR program is encored by three
-                    pillars that define what we fight for.
 
-                </p>
-                <p>As a company, we extend our "We Are All Fighters" brand maxim well beyond the Octagon. we bring that
-                    fighting spirit to our CSR initiatives as we seek to build a testing legacy - both in home city of
-                    Las vagas, and in every community we touch around the world. It takes courage to step into the
-                    Octagon, and it takes courage to stand for your convictions. Our CSR program is encored by three
-                    pillars that define what we fight for.
+                <h5> Hello and welcome to thefightfinder.com! </h5>
 
-                </p>
-                <p>As a company, we extend our "We Are All Fighters" brand maxim well beyond the Octagon. we bring that
-                    fighting spirit to our CSR initiatives as we seek to build a testing legacy - both in home city of
-                    Las vagas, and in every community we touch around the world. It takes courage to step into the
-                    Octagon, and it takes courage to stand for your convictions. Our CSR program is encored by three
-                    pillars that define what we fight for.
 
-                </p>
-                <p>As a company, we extend our "We Are All Fighters" brand maxim well beyond the Octagon. we bring that
-                    fighting spirit to our CSR initiatives as we seek to build a testing legacy - both in home city of
-                    Las vagas, and in every community we touch around the world. It takes courage to step into the
-                    Octagon, and it takes courage to stand for your convictions. Our CSR program is encored by three
-                    pillars that define what we fight for.
+                <p>Founded in 2019, TheFightFinder.com was built with the purpose to
+                    connect all those interested in martial arts, no matter their discipline,
+                    organization or affiliation. By giving our community a space for us to
+                    find events and communicate, we hope this will increase the unity
+                    among martial artists and allow for our world wide martial arts
+                    community to become a little bit closer. </p>
 
-                </p>
+
+                <p><strong>Our Mission</strong> - To provide martial artist a space where they can find
+                    competitons, events, seminars and training locations in one place. </p>
+
+
+                <p><strong>Our Vision</strong> - Allowing martial artists of various disciplines to connect
+                    with members of their respective communities and also allow them to
+                    explore other disciplines. </p>
+
+
+                <p>We hope you enjoy our site and what we have to offer. Please feel free
+                    to send us your thoughts for any improvements or questions you may
+                    have. </p>
+
             </div>
 
 
